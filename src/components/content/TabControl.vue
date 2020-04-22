@@ -9,20 +9,16 @@
 <script>
   export default {
     name: "tabControl",
-    props: {
-      titles: {
-        type: Array,
-        default: []
-      }
-    },
     data() {
       return {
-        currentIndex: 0
+        currentIndex: 0,
+        titles: ['流行', '新款', '热卖']
       }
     },
     methods: {
       btnClick(index) {
-        this.currentIndex = index
+        this.currentIndex = index;
+        this.$emit('tabClick', index)
       }
     }
   }
@@ -32,7 +28,7 @@
   .tab-control {
     display: flex;
     text-align: center;
-    background-color: #cccccc;
+    background-color: #e1dcdc
   }
   .tab-control-item {
     flex: 1;

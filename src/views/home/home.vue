@@ -5,115 +5,220 @@
         <div>购物街</div>
       </template>
     </nav-bar>
-    <home-swiper class="homeSwiper" :banner-img="banner"></home-swiper>
-    <recommend-view :recommendations="recommend"></recommend-view>
-    <feature-view></feature-view>
-    <tab-control class="tab-control" :titles="['流行', '新款', '精选']"></tab-control>
-    <ul>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
+<!--    吸顶效果tabControl——这样设置的原因：规避BS插件造成的无法吸顶并且到达顶部后脱流-->
+    <tab-control
+        @tabClick="tabClick"
+        ref="tabControlUp"
+        class="tabControl"
+        v-show="isFixed"/>
+<!--    滚动页面-->
+    <scroll class="wrapper"
+            ref="scroll"
+            :probe-type="3"
+            @scroll="contentScroll"
+            :pull-up-load="true"
+            @pullingUp="loadMore"
+            @tabControlFixed="tabControlFixed">
+      <home-swiper
+          class="homeSwiper"
+          :banner-img="banner"
+          @bannerImgLoad.once="bannerImgLoad"/>
+      <recommend-view :recommendations="recommend"/>
+      <feature-view/>
+      <tab-control
+          class="tabControl"
+          @tabClick="tabClick"
+          ref="tabControlNormal"/>
+      <goods-list :goods="showGoods"/>
+    </scroll>
+    <back-top @click.native="backTop" v-show="isBackTopShow"/>
   </div>
 </template>
 
 <script>
   import NavBar from "@/components/common/navBar/NavBar";
+  import TabControl from "@/components/content/TabControl";
+  import GoodsList from "@/components/content/goods/GoodsList";
+  import Scroll from "@/components/common/scroll/Scroll";
+  import BackTop from "@/components/content/backTop/BackTop";
+
   import homeSwiper from "@/views/home/childComps/homeSwiper"
   import recommendView from "@/views/home/childComps/RecommendView"
   import featureView from "@/views/home/childComps/featureView";
 
-  import TabControl from "@/components/content/TabControl";
-
-  import {getHomeMultidata} from "@/network/home";
+  import { getHomeMultidata, getHomeGoods } from "@/network/home";
+  import { debounce } from "@/components/common/utils/utils";
 
   export default {
     name: "home",
     components: {
       NavBar,
+      TabControl,
+      GoodsList,
+      Scroll,
+      BackTop,
       homeSwiper,
       recommendView,
       featureView,
-      TabControl
     },
     data() {
       return {
         banner: [],
-        recommend: []
+        recommend: [],
+        goods: {
+          "pop": {page: 0, list: []},
+          "new": {page: 0, list: []},
+          "sell": {page: 0, list: []}
+        },
+        currentType: 'pop', //默认展示的栏目
+        isBackTopShow: false,
+        tabOffsetTop: 0,
+        isFixed: false
       }
     },
+
     created() {
+      /*
+      * 发出网络请求
+      * */
+      // 将这里的代码再次分割，把实现方法移到methods中，这里只调用
       // 1. 请求多个数据
-      getHomeMultidata().then(res => {
-        this.banner = res.data.banner.list;
-        this.recommend = res.data.recommend.list
+      this.getHomeMultidata()
+
+      // 2.请求商品数据
+      this.getHomeGoods('pop')
+      this.getHomeGoods('new')
+      this.getHomeGoods('sell')
+    },
+
+    mounted() {
+      // 监听GoodsListItem中的图片加载完成
+      // 作防抖：
+      const refresh = debounce(this.$refs.scroll.refreshScroll, 50)
+      this.$bus.$on('itemImgLoad', () => {
+        refresh()
       })
+      // 不作防抖：每次在goodsListItem中刷新30张图片，每刷新一次就会refresh一次，请求次数过多
+      // this.$bus.$on('itemImgLoad', () => {
+      //   this.$refs.scroll.refreshScroll()
+      // })
+    },
+    computed: {
+      showGoods() {
+        return this.goods[this.currentType].list
+      }
+    },
+
+    methods: {
+      /*
+       * 这里是事件监听相关方法
+       */
+      // 防抖:单独封装到utils中
+      // debounce(func, delay) {
+      //   let timer = null;
+      //   return function () {
+      //     let context = this
+      //     let args = arguments
+      //     if (timer) clearTimeout(timer)
+      //     timer = setTimeout(() => {
+      //       func.apply(context, args)
+      //     }, delay)
+      //   }
+      // },
+      tabClick(index) {
+        switch (index) {
+          case 0:
+            this.currentType = 'pop'
+            break
+          case 1:
+            this.currentType = 'new'
+            break
+          case 2:
+            this.currentType = 'sell'
+            break
+        }
+        this.$refs.tabControlNormal.currentIndex = index;
+        this.$refs.tabControlUp.currentIndex = index
+      },
+      backTop() {
+        this.$refs.scroll.scrollTo(0, 0, 2000)
+      },
+      contentScroll(pos) {
+        // 判断backTop是否显示
+        this.isBackTopShow = pos.y < -1000
+      },
+      tabControlFixed(pos) {
+        // 判断是否吸顶
+        // console.log(pos.y);
+        this.isFixed = pos.y < -this.tabOffsetTop
+      },
+      loadMore() {
+        this.getHomeGoods(this.currentType)
+      },
+      bannerImgLoad() {
+        this.tabOffsetTop = this.$refs.tabControlNormal.$el.offsetTop;
+      },
+      /*
+      * 这里是网络请求相关方法
+      */
+      //注意：这里两个getHomeMultidata是两个不同的函数，外层的是methods中定义的；内层是home.js中传过来的
+      getHomeMultidata() {
+        getHomeMultidata().then(res => {
+          this.banner = res.data.banner.list;
+          this.recommend = res.data.recommend.list
+        })
+      },
+      getHomeGoods(type) {
+        const page = this.goods[type].page + 1;
+        getHomeGoods(type, page).then(res => {
+          this.goods[type].list.push(...res.data.list); //展开运算符
+          this.goods[type].page += 1;
+
+          this.$refs.scroll.finishPullUp()   //scroll.vue中封装了方法finishPullUp
+        })
+      },
     }
   }
 </script>
 
+<!--scoped的含义是限制css的作用域在此处-->
 <style scoped>
+  #home {
+    height: 100vh;
+    position: relative;
+  }
   .navbar {
-    position: fixed;
-    z-index: 100;
+    position: relative;
+    z-index: 10;
     top: 0;
     left: 0;
     right: 0;
   }
 
-  .homeSwiper {
-    margin-top: 44px;
+  /*教训：一直不知道为什么wrapper整体下移了44px，原来是这里曾经设置过，所以调试一定要仔细*/
+  /*.homeSwiper {*/
+  /*  margin-top: 44px;*/
+  /*}*/
+
+  /*吸顶失效*/
+  /*.tab-control {*/
+  /*  position: sticky;*/
+  /*  top: 44px;*/
+  /*  z-index: 100;*/
+  /*}*/
+  /*重新设置tabControl(这是吸顶效果的tabControl)*/
+  .tabControl {
+    position: relative;
+    z-index: 10;
   }
 
-  .tab-control {
-    position: sticky;
-    top: 44px
+  .wrapper {
+    position: absolute;
+    top: 44px;
+    bottom: 49px;
+    left: 0;
+    right: 0;
+    overflow: hidden;
   }
+
 </style>

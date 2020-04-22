@@ -3,7 +3,7 @@
       <template v-for="(item,index) of bannerImg">    <!--这里用template来分组！！！！-->
         <swiper-slide>
           <a :href="item.link">
-            <img :src="item.image" alt="banners">
+            <img :src="item.image" alt="banners" @load="bannerImgLoad">
           </a>
         </swiper-slide>
       </template>
@@ -35,12 +35,17 @@
           },
           loop: true,
           autoplay: {
-            delay: 3000,
+            delay: 2000,
             disableOnInteraction: true
-          }
+          },
         }
       }
     },
+    methods: {
+      bannerImgLoad() {
+        this.$emit('bannerImgLoad')
+      }
+    }
   }
 </script>
 
