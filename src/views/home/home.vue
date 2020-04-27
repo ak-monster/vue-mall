@@ -2,7 +2,7 @@
   <div id="home">
     <nav-bar class="navbar">
       <template slot="center">
-        <div>购物街</div>
+        <div class="center"><div class="navTitle">购物街</div></div>
       </template>
     </nav-bar>
 <!--    吸顶效果tabControl——这样设置的原因：规避BS插件造成的无法吸顶并且到达顶部后脱流-->
@@ -66,14 +66,15 @@
         banner: [],
         recommend: [],
         goods: {
-          "pop": {page: 0, list: []},
-          "new": {page: 0, list: []},
-          "sell": {page: 0, list: []}
+          "pop": {page: 0, list: [], saveY: {isClick: true, y: 0}},
+          "new": {page: 0, list: [], saveY: {isClick: false, y: 0}},
+          "sell": {page: 0, list: [], saveY: {isClick: false, y: 0}}
         },
         currentType: 'pop', //默认展示的栏目
         isBackTopShow: false,
         tabOffsetTop: 0,
-        isFixed: false
+        isFixed: false,
+        saveY: 0
       }
     },
 
@@ -90,7 +91,6 @@
       this.getHomeGoods('new')
       this.getHomeGoods('sell')
     },
-
     mounted() {
       // 监听GoodsListItem中的图片加载完成
       // 作防抖：
@@ -102,6 +102,15 @@
       // this.$bus.$on('itemImgLoad', () => {
       //   this.$refs.scroll.refreshScroll()
       // })
+    },
+    // destroyed() {
+    //   console.log('已销毁home页面');
+    // },
+    activated() {
+      this.$refs.scroll.scrollTo(0, this.saveY, 0)
+    },
+    deactivated() {
+      this.saveY = this.$refs.scroll.getScrollY()
     },
     computed: {
       showGoods() {
@@ -138,7 +147,20 @@
             break
         }
         this.$refs.tabControlNormal.currentIndex = index;
-        this.$refs.tabControlUp.currentIndex = index
+        this.$refs.tabControlUp.currentIndex = index;
+
+        // 记录三个页面的位置，当第一次点击时，回到该页面的顶部；不是第一次点击，则回到上次停留的位置
+// 失败：原因——没能记录每个选项的自己的y
+        // let isClick = this.goods[this.currentType].saveY.isClick
+        // if (isClick) {
+        //   this.$refs.scroll.scrollTo(0, y, 0)
+        // } else {
+        //   this.$refs.scroll.scrollTo(0, -this.tabOffsetTop, 0)
+        //   this.goods[this.currentType].saveY.isClick = true
+        // }
+        // let y = this.goods[this.currentType].saveY.y = this.$refs.scroll.getScrollY()
+        // console.log(isClick);
+        // console.log(y);
       },
       backTop() {
         this.$refs.scroll.scrollTo(0, 0, 2000)
@@ -193,6 +215,9 @@
     top: 0;
     left: 0;
     right: 0;
+  }
+  .navTitle {
+    flex: 1;
   }
 
   /*教训：一直不知道为什么wrapper整体下移了44px，原来是这里曾经设置过，所以调试一定要仔细*/

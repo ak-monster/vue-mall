@@ -51,16 +51,22 @@
       }
     },
     methods: {
-      //返回顶部
+      //滚动到对应位置
       scrollTo(x, y, time=600) {
         this.scroll && this.scroll.scrollTo(x, y, time)
       },
+      // 识别上拉加载动作结束
       finishPullUp() {
         this.scroll && this.scroll.finishPullUp()
       },
+      // 刷新数据
       refreshScroll() {
         // console.log('刷新测试');
         this.scroll && this.scroll.refresh()
+      },
+      // 记录滚动的Y轴位置
+      getScrollY() {
+        return this.scroll ? this.scroll.y : 0
       }
     }
   }

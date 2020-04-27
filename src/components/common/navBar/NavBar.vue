@@ -35,7 +35,7 @@
     height: 44px;
     line-height: 44px;
     text-align: center;
-    /*box-shadow: 0 2px 5px rgba(100, 100, 100, 0.1);*/
+    box-shadow: 0 2px 5px rgba(100, 100, 100, 0.1);
   }
 
   .left, .right {
@@ -44,5 +44,6 @@
 
   .center {
     flex: 1;
+    display: flex;
   }
 </style>

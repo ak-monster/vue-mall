@@ -6,6 +6,7 @@ let home = () => import('views/home/home')
 let category = () => import('views/category/category')
 let shopcart = () => import('views/shopcart/shopcart')
 let profile = () => import('views/profile/profile')
+let Detail = () => import('views/detail/Detail')
 
 // 解决多次点击报错问题
 const originalPush = VueRouter.prototype.push
@@ -37,6 +38,10 @@ const routes = [
   {
     path: '/profile',
     component: profile
+  },
+  {
+    path: '/detail/:iid',
+    component: Detail
   }
 ]
 

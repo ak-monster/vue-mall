@@ -1,9 +1,9 @@
 <template>
-  <swiper ref="mySwiper" :options="swiperOptions">
-    <template v-for="item of bannerImg">    <!--这里用template来分组！！！！-->
+  <swiper ref="mySwiper" :options="swiperOptions" class="bannerSwiper">
+    <template v-for="item of bannerImages">
       <swiper-slide>
-        <a :href="item.link">
-          <img :src="item.image" alt="banners" @load="bannerImgLoad">
+        <a href="">
+          <img :src="item" alt="banners">
         </a>
       </swiper-slide>
     </template>
@@ -16,13 +16,13 @@
   import 'swiper/css/swiper.css'
 
   export default {
-    name: "homeSwiper",  //这里不要用swiper作名字，否则报错
+    name: "DetailSwiper",
     components: {
       Swiper,
       SwiperSlide
     },
     props: {
-      bannerImg: {
+      bannerImages: {
         type: Array,
         default() {
           return []
@@ -38,23 +38,20 @@
           loop: true,
           autoplay: {
             delay: 2000,
-            disableOnInteraction: false   //手动滑动后依然可以自动轮播。默认是true
+            disableOnInteraction: false
           },
         }
       }
     },
-    methods: {
-      bannerImgLoad() {
-        this.$emit('bannerImgLoad')
-      }
-    }
   }
 </script>
 
 <style scoped>
-  /*图片高度设置为auto就随宽度变化*/
+  .bannerSwiper {
+    height: 300px;
+  }
   img {
     width: 100%;
-    height: auto
+    height: auto;
   }
 </style>

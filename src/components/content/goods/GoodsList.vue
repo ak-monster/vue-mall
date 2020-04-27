@@ -20,11 +20,6 @@
         }
       }
     },
-    data() {
-      return {
-
-      }
-    }
   }
 </script>
 
