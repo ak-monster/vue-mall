@@ -1,7 +1,7 @@
 <template>
   <div id="recommend">
     <div class="item" v-for="(item, index) of itemRecommend" :key="index">
-      <img class="image" :src="item.image" alt="">
+      <img class="image" :src="item.image" alt="" @load="imgLoad">
       <div class="font">
         <p class="title">{{item.title}}</p>
         <span class="price">{{item.price}}</span>
@@ -28,24 +28,18 @@
         imagesLength: 0
       }
     },
-    // 尝试解决滑动问题——没成功
-    // methods: {
-    //   imagesLoad() {
-    //     if (++this.counter === 24) {
-    //       console.log(this.counter);
-    //       console.log(this.imagesLength);
-    //       console.log(this.itemRecommend.length);
-    //       this.$emit('imagesLoad')
-    //     }
-    //   }
-    // },
-    // watch: {
-    //   recommendImages() {
-    //     console.log(this.imagesLength);
-    //     console.log(this.itemRecommend.length);
-    //     this.imagesLength = this.itemRecommend.length
-    //   }
-    // }
+    methods: {
+      imgLoad() {
+        if (++this.counter === this.imagesLength) {
+          this.$emit('img-load')
+        }
+      }
+    },
+    watch: {
+      itemRecommend() {
+        this.imagesLength = this.itemRecommend.length
+      }
+    }
   }
 </script>
 

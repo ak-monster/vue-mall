@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" ref="wrapper">
+  <div ref="wrapper">
     <div class="content">
       <slot></slot>
     </div>
@@ -36,6 +36,7 @@
         pullUpLoad: this.pullUpLoad,
       });
 
+      // console.log(this.scroll);
       // 2.监听滚动位置
       this.scroll.on('scroll', pos => {
         this.$emit('scroll', pos);

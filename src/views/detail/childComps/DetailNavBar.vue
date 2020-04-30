@@ -30,9 +30,10 @@
     methods: {
       titleClick(index) {
         this.currentIndex = index
+        this.$emit('nav-click', index)
       },
       backClick() {
-        this.$router.back()
+        this.$router.push('/home')
         // 或者
         // this.$router.go(-1)
       }

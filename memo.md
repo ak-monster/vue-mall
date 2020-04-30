@@ -1,14 +1,25 @@
 ### 预留属性设置  
 1. 在插入NavBar的时候，可以使用属性bgColor来调整导航栏的颜色
+2. 在mainTabBar中，可以给tabBarItem中给定属性值text-color来更改字体颜色，注意直接赋值颜色值时不要加:
 
 ### 注意事项   
 1. 一般vue组件的文件名用驼峰表示，并且首字母大写   
+
 2. 路由一不要忘记加上<router-view>   
+
 3. 轮播插件swiper的name不要用swiper本身作名字，class也不要用swiper本身作名字
+
 4. 静态路径加上~表示完整路径  
+
 5. props中加default时，数组和对象要用default的函数形式  
+
 6. 在Detail详情页的swiper中，在keep-alive的情况下，Detail组件不会重新渲染，
-所有的图片都是获取的都是第一次点击的图片，所以要在keep-alive中exclude掉Detail
+  所有的图片都是获取的都是第一次点击的图片，所以要在keep-alive中exclude掉Detail  
+
+7. <img>中引入本地静态地址的方法：
+
+   ![image-20200429182750474](C:\Users\ak monster\AppData\Roaming\Typora\typora-user-images\image-20200429182750474.png)
+
 
 ### 重点学习
 1. 网络请求
@@ -24,8 +35,12 @@
 
 4. 知识点：路由返回$router.back()和$router.go(-1)  
 
-5. 知识点：时间戳的转换
-    
+5. 知识点：时间戳的转换  
+
+6. mixin混入——用来存放公共代码（和vuex的区别——mixin在各个组件中的数据是私有的，使用互不干扰；而vuex中的数据是公用的）
+
+7. vuex的使用
+   
 ### css样式调整
 1. flex布局——属性的使用
 2. 多利用子元素对父元素width的百分比来调整大小
@@ -44,7 +59,7 @@
   height: 14px;
   background: url("~assets/img/common/collect.svg") 0 0/14px 14px;  /*注意：size和position属性在简写的情况下，要么都写，要么都不写。都写的时候size前面需要加/*/
 }
-```  
+```
 4. table布局（详情页中商家信息里对描述、价格、质量的排列）
 
 ### 常用技巧
@@ -54,4 +69,9 @@
 ### 插件的使用  
 1. better-scroll：  
     - 若不能滑动，检查wrapper和content的高度，wrapper的高度一定要小于content的高度
-    - 在有图片异步加载的时候，要注意每次加载了图片后都要refresh
+    - 在有图片异步加载的时候，要注意每次加载了图片后都要加上事件@load来refresh整个DOM  
+    - 在任何DOM发生改变的地方（特别是异步加载）都要重新refresh
+    - 监听滚动事件要设置属性probe-type为3（这里耽误了时间···）
+    
+### router路由
+1. <keep-alive>中用exclude来排除某个不维持状态的组件
