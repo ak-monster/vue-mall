@@ -3,3 +3,4 @@
 export const ADD_PRODUCT_COUNT = 'add_product_count'
 export const ADD_TO_CART = 'add_to_cart'
 export const SELECT_ALL = 'select_all'
+export const SELECT_NO = 'select_no'

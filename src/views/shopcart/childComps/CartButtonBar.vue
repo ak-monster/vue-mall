@@ -3,7 +3,7 @@
     <div class="selectAll">
       <check-button
           :is-checked="!select"
-          @click="selectAllBtn"/>
+          @click.native="selectAllBtn"/>
       <span>全选</span>
     </div>
     <div class="countPrince">
@@ -19,7 +19,7 @@
   import CheckButton from "@/components/content/checkButton/CheckButton";
 
   import { mapGetters } from 'vuex'
-  import {SELECT_ALL} from "@/store/mutation-types";
+  import { SELECT_ALL, SELECT_NO } from "@/store/mutation-types";
 
   export default {
     name: "CartButtonBar",
@@ -35,8 +35,11 @@
     },
     methods: {
       selectAllBtn() {
-        console.log('qqqqqqqq');
-        // this.$store.commit(SELECT_ALL)
+        if (!this.select) {
+          this.$store.commit(SELECT_ALL)
+        } else {
+          this.$store.commit(SELECT_NO)
+        }
       }
     }
   }

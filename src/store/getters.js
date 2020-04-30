@@ -21,5 +21,8 @@ export default {
     // 说明：方法三性能应该要高一些，是短路判断；而方法一二都需要将整个数组都遍历一遍
     return state.cartList.some(item => item.checked === false) || getters.cartListLength === 0
     //注意这里犯了一个错误：getters.cartListLength不是函数，是一个对象的键。所以是getters.cartListLength === 0而不是getters.cartListLength() === 0等等奇怪的写法。在上述定义的时候，是用的简化写法。完整写法应该是 {cartListLength: function(state){return```}}
+  },
+  selectAll(state) {
+    return
   }
 }
