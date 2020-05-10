@@ -18,7 +18,7 @@
             @scroll="scrollPosition"
             :pull-up-load="true"
             @pullingUp="loadMore"
-            @tabControlFixed="tabControlFixed">
+            @tabControlFixed="tabControlFixed" :goods="goods">
       <home-swiper
           class="homeSwiper"
           :banner-img="banner"
@@ -108,6 +108,8 @@
     // },
     // 保留原来的浏览位置
     activated() {
+      //调试分类栏切换并滑动导致home滑动失效的bug
+      console.log('回到y坐标' + this.saveY);
       this.$refs.scroll.scrollTo(0, this.saveY, 0)
     },
     deactivated() {
@@ -181,6 +183,7 @@
       bannerImgLoad() {
         this.tabOffsetTop = this.$refs.tabControlNormal.$el.offsetTop;
       },
+
       /*
       * 这里是网络请求相关方法
       */

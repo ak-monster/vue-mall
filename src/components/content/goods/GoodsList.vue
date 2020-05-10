@@ -1,6 +1,6 @@
 <template>
   <div class="goods">
-    <goods-list-item v-for="item of goods" :goods-item="item"/>  <!--item就直接获取到数组单个元素-->
+    <goods-list-item v-for="item of goods" :goods-item="item"/> <!--item就直接获取到数组单个元素-->
   </div>
 </template>
 

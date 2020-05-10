@@ -9,7 +9,12 @@
       <div class="desc">{{item.desc}}</div>
       <div class="bottom">
         <div class="price">￥{{item.price}}</div>
-        <div class="count">x{{item.count}}</div>
+        <div class="itemDelete" @click="itemDelete">删除</div>
+        <div class="count">
+          <span class="itemButton" @click="itemDecrease">-</span>
+          <span class="itemCount">{{item.count}}</span>
+          <span class="itemButton" @click="itemIncrease">+</span>
+        </div>
       </div>
     </div>
   </div>
@@ -18,10 +23,12 @@
 <script>
   import CheckButton from "@/components/content/checkButton/CheckButton";
 
+  import {ITEM_DECREASE, ITEM_DELETE, ITEM_INCREASE} from "@/store/mutation-types";
+
   export default {
     name: "CartListItem",
     components: {
-      CheckButton
+      CheckButton,
     },
     props: {
       item: {
@@ -32,6 +39,19 @@
     methods: {
       selectBtn() {
         this.item.checked = !this.item.checked
+      },
+      itemDecrease() {
+        if (this.item.count === 1) {
+          this.$toast.show('客官,宝贝不能再少啦')
+        } else {
+          this.$store.commit(ITEM_DECREASE, this.item.iid)
+        }
+      },
+      itemIncrease() {
+        this.$store.commit(ITEM_INCREASE, this.item.iid)
+      },
+      itemDelete() {
+        this.$store.commit(ITEM_DELETE, this.item.iid)
       }
     }
   }
@@ -76,12 +96,30 @@
   }
   .bottom {
     width: 100%;
+    height: 20px;
   }
   .bottom .price {
     color: var(--color-high-text);
     float: left;
+    line-height: 20px;
   }
   .bottom .count {
     float: right;
+    margin-right: 18px;
+  }
+  .count .itemButton, .count .itemCount {
+    border: 1px solid rgba(0, 0, 0, .2);
+    display: inline-block;
+    width: 35px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
+  }
+  .itemDelete {
+    float: right;
+    font-size: 8px;
+    height: 20px;
+    line-height: 22px;
+    color: var(--color-high-text);
   }
 </style>

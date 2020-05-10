@@ -13,7 +13,7 @@
       <shop-info :shop="shop"/>
       <detail-goods-info
           :detail-info="detailInfo"
-          @images-load="imagesLoad"></detail-goods-info>
+          @images-load="imagesLoad"/>
       <detail-item-params
           :item-params="itemParams"
           ref="params"/>
@@ -62,7 +62,7 @@
       DetailComments,
       DetailRecommend,
       BackTop,
-      DetailBottomBar
+      DetailBottomBar,
     },
     data() {
       return {
@@ -77,7 +77,7 @@
         isBackTopShow: false,
         tabOffsetTop: [],
         // 记录滚动的Y位置
-        scrollY: 0
+        scrollY: 0,
       }
     },
     created() {
@@ -127,7 +127,7 @@
       // 数据获取
       getGoodsDetail(iid) {
         getDetail(iid).then(res => {
-          console.log(res);
+          // console.log(res);
           // 获取详情页的轮播图
           const data = res.result
           this.topImages = data.itemInfo.topImages && data.itemInfo.topImages
@@ -196,7 +196,19 @@
 
         // 将商品添加到购物车里
         // this.$store.commit('addCart', product)
-        this.$store.dispatch('addCart', product)
+        // 这里也可以用mapActions来映射要调用的函数，就可以在methods中直接用this.方法的方式使用该方法
+        this.$store.dispatch('addCart', product).then(res => {
+          // this.show = true;
+          // this.message = res
+          // console.log(res);
+          // setTimeout(() => {
+          //   this.show = false;
+          //   this.message = ''
+          // }, 1500)
+          // 上述封装为单独的插件
+          // console.log(this.$toast);
+          this.$toast.show(res, 1500)
+        })
       }
     }
   }

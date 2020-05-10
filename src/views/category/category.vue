@@ -1,454 +1,194 @@
 <template>
-  <div>
-    <scroll class="wrapper">
-      <ul>
-        <li>aaa1</li>
-        <li>aaa2</li>
-        <li>aaa3</li>
-        <li>aaa4</li>
-        <li>aaa5</li>
-        <li>aaa6</li>
-        <li>aaa7</li>
-        <li>aaa8</li>
-        <li>aaa9</li>
-        <li>aaa10</li>
-        <li>aaa11</li>
-        <li>aaa12</li>
-        <li>aaa13</li>
-        <li>aaa14</li>
-        <li>aaa15</li>
-        <li>aaa16</li>
-        <li>aaa17</li>
-        <li>aaa18</li>
-        <li>aaa19</li>
-        <li>aaa20</li>
-        <li>aaa21</li>
-        <li>aaa22</li>
-        <li>aaa23</li>
-        <li>aaa24</li>
-        <li>aaa25</li>
-        <li>aaa26</li>
-        <li>aaa27</li>
-        <li>aaa28</li>
-        <li>aaa29</li>
-        <li>aaa30</li>
-        <li>aaa31</li>
-        <li>aaa32</li>
-        <li>aaa33</li>
-        <li>aaa34</li>
-        <li>aaa35</li>
-        <li>aaa36</li>
-        <li>aaa37</li>
-        <li>aaa38</li>
-        <li>aaa39</li>
-        <li>aaa40</li>
-        <li>aaa41</li>
-        <li>aaa42</li>
-        <li>aaa43</li>
-        <li>aaa44</li>
-        <li>aaa45</li>
-        <li>aaa46</li>
-        <li>aaa47</li>
-        <li>aaa48</li>
-        <li>aaa49</li>
-        <li>aaa50</li>
-        <li>aaa51</li>
-        <li>aaa52</li>
-        <li>aaa53</li>
-        <li>aaa54</li>
-        <li>aaa55</li>
-        <li>aaa56</li>
-        <li>aaa57</li>
-        <li>aaa58</li>
-        <li>aaa59</li>
-        <li>aaa60</li>
-        <li>aaa61</li>
-        <li>aaa62</li>
-        <li>aaa63</li>
-        <li>aaa64</li>
-        <li>aaa65</li>
-        <li>aaa66</li>
-        <li>aaa67</li>
-        <li>aaa68</li>
-        <li>aaa69</li>
-        <li>aaa70</li>
-        <li>aaa71</li>
-        <li>aaa72</li>
-        <li>aaa73</li>
-        <li>aaa74</li>
-        <li>aaa75</li>
-        <li>aaa76</li>
-        <li>aaa77</li>
-        <li>aaa78</li>
-        <li>aaa79</li>
-        <li>aaa80</li>
-        <li>aaa81</li>
-        <li>aaa82</li>
-        <li>aaa83</li>
-        <li>aaa84</li>
-        <li>aaa85</li>
-        <li>aaa86</li>
-        <li>aaa87</li>
-        <li>aaa88</li>
-        <li>aaa89</li>
-        <li>aaa90</li>
-        <li>aaa91</li>
-        <li>aaa92</li>
-        <li>aaa93</li>
-        <li>aaa94</li>
-        <li>aaa95</li>
-        <li>aaa96</li>
-        <li>aaa97</li>
-        <li>aaa98</li>
-        <li>aaa99</li>
-        <li>aaa100</li>
-        <li>aaa101</li>
-        <li>aaa102</li>
-        <li>aaa103</li>
-        <li>aaa104</li>
-        <li>aaa105</li>
-        <li>aaa106</li>
-        <li>aaa107</li>
-        <li>aaa108</li>
-        <li>aaa109</li>
-        <li>aaa110</li>
-        <li>aaa111</li>
-        <li>aaa112</li>
-        <li>aaa113</li>
-        <li>aaa114</li>
-        <li>aaa115</li>
-        <li>aaa116</li>
-        <li>aaa117</li>
-        <li>aaa118</li>
-        <li>aaa119</li>
-        <li>aaa120</li>
-        <li>aaa121</li>
-        <li>aaa122</li>
-        <li>aaa123</li>
-        <li>aaa124</li>
-        <li>aaa125</li>
-        <li>aaa126</li>
-        <li>aaa127</li>
-        <li>aaa128</li>
-        <li>aaa129</li>
-        <li>aaa130</li>
-        <li>aaa131</li>
-        <li>aaa132</li>
-        <li>aaa133</li>
-        <li>aaa134</li>
-        <li>aaa135</li>
-        <li>aaa136</li>
-        <li>aaa137</li>
-        <li>aaa138</li>
-        <li>aaa139</li>
-        <li>aaa140</li>
-        <li>aaa141</li>
-        <li>aaa142</li>
-        <li>aaa143</li>
-        <li>aaa144</li>
-        <li>aaa145</li>
-        <li>aaa146</li>
-        <li>aaa147</li>
-        <li>aaa148</li>
-        <li>aaa149</li>
-        <li>aaa150</li>
-        <li>aaa151</li>
-        <li>aaa152</li>
-        <li>aaa153</li>
-        <li>aaa154</li>
-        <li>aaa155</li>
-        <li>aaa156</li>
-        <li>aaa157</li>
-        <li>aaa158</li>
-        <li>aaa159</li>
-        <li>aaa160</li>
-        <li>aaa161</li>
-        <li>aaa162</li>
-        <li>aaa163</li>
-        <li>aaa164</li>
-        <li>aaa165</li>
-        <li>aaa166</li>
-        <li>aaa167</li>
-        <li>aaa168</li>
-        <li>aaa169</li>
-        <li>aaa170</li>
-        <li>aaa171</li>
-        <li>aaa172</li>
-        <li>aaa173</li>
-        <li>aaa174</li>
-        <li>aaa175</li>
-        <li>aaa176</li>
-        <li>aaa177</li>
-        <li>aaa178</li>
-        <li>aaa179</li>
-        <li>aaa180</li>
-        <li>aaa181</li>
-        <li>aaa182</li>
-        <li>aaa183</li>
-        <li>aaa184</li>
-        <li>aaa185</li>
-        <li>aaa186</li>
-        <li>aaa187</li>
-        <li>aaa188</li>
-        <li>aaa189</li>
-        <li>aaa190</li>
-        <li>aaa191</li>
-        <li>aaa192</li>
-        <li>aaa193</li>
-        <li>aaa194</li>
-        <li>aaa195</li>
-        <li>aaa196</li>
-        <li>aaa197</li>
-        <li>aaa198</li>
-        <li>aaa199</li>
-        <li>aaa200</li>
-        <li>aaa201</li>
-        <li>aaa202</li>
-        <li>aaa203</li>
-        <li>aaa204</li>
-        <li>aaa205</li>
-        <li>aaa206</li>
-        <li>aaa207</li>
-        <li>aaa208</li>
-        <li>aaa209</li>
-        <li>aaa210</li>
-        <li>aaa211</li>
-        <li>aaa212</li>
-        <li>aaa213</li>
-        <li>aaa214</li>
-        <li>aaa215</li>
-        <li>aaa216</li>
-        <li>aaa217</li>
-        <li>aaa218</li>
-        <li>aaa219</li>
-        <li>aaa220</li>
-        <li>aaa221</li>
-        <li>aaa222</li>
-        <li>aaa223</li>
-        <li>aaa224</li>
-        <li>aaa225</li>
-        <li>aaa226</li>
-        <li>aaa227</li>
-        <li>aaa228</li>
-        <li>aaa229</li>
-        <li>aaa230</li>
-        <li>aaa231</li>
-        <li>aaa232</li>
-        <li>aaa233</li>
-        <li>aaa234</li>
-        <li>aaa235</li>
-        <li>aaa236</li>
-        <li>aaa237</li>
-        <li>aaa238</li>
-        <li>aaa239</li>
-        <li>aaa240</li>
-        <li>aaa241</li>
-        <li>aaa242</li>
-        <li>aaa243</li>
-        <li>aaa244</li>
-        <li>aaa245</li>
-        <li>aaa246</li>
-        <li>aaa247</li>
-        <li>aaa248</li>
-        <li>aaa249</li>
-        <li>aaa250</li>
-        <li>aaa251</li>
-        <li>aaa252</li>
-        <li>aaa253</li>
-        <li>aaa254</li>
-        <li>aaa255</li>
-        <li>aaa256</li>
-        <li>aaa257</li>
-        <li>aaa258</li>
-        <li>aaa259</li>
-        <li>aaa260</li>
-        <li>aaa261</li>
-        <li>aaa262</li>
-        <li>aaa263</li>
-        <li>aaa264</li>
-        <li>aaa265</li>
-        <li>aaa266</li>
-        <li>aaa267</li>
-        <li>aaa268</li>
-        <li>aaa269</li>
-        <li>aaa270</li>
-        <li>aaa271</li>
-        <li>aaa272</li>
-        <li>aaa273</li>
-        <li>aaa274</li>
-        <li>aaa275</li>
-        <li>aaa276</li>
-        <li>aaa277</li>
-        <li>aaa278</li>
-        <li>aaa279</li>
-        <li>aaa280</li>
-        <li>aaa281</li>
-        <li>aaa282</li>
-        <li>aaa283</li>
-        <li>aaa284</li>
-        <li>aaa285</li>
-        <li>aaa286</li>
-        <li>aaa287</li>
-        <li>aaa288</li>
-        <li>aaa289</li>
-        <li>aaa290</li>
-        <li>aaa291</li>
-        <li>aaa292</li>
-        <li>aaa293</li>
-        <li>aaa294</li>
-        <li>aaa295</li>
-        <li>aaa296</li>
-        <li>aaa297</li>
-        <li>aaa298</li>
-        <li>aaa299</li>
-        <li>aaa300</li>
-        <li>aaa301</li>
-        <li>aaa302</li>
-        <li>aaa303</li>
-        <li>aaa304</li>
-        <li>aaa305</li>
-        <li>aaa306</li>
-        <li>aaa307</li>
-        <li>aaa308</li>
-        <li>aaa309</li>
-        <li>aaa310</li>
-        <li>aaa311</li>
-        <li>aaa312</li>
-        <li>aaa313</li>
-        <li>aaa314</li>
-        <li>aaa315</li>
-        <li>aaa316</li>
-        <li>aaa317</li>
-        <li>aaa318</li>
-        <li>aaa319</li>
-        <li>aaa320</li>
-        <li>aaa321</li>
-        <li>aaa322</li>
-        <li>aaa323</li>
-        <li>aaa324</li>
-        <li>aaa325</li>
-        <li>aaa326</li>
-        <li>aaa327</li>
-        <li>aaa328</li>
-        <li>aaa329</li>
-        <li>aaa330</li>
-        <li>aaa331</li>
-        <li>aaa332</li>
-        <li>aaa333</li>
-        <li>aaa334</li>
-        <li>aaa335</li>
-        <li>aaa336</li>
-        <li>aaa337</li>
-        <li>aaa338</li>
-        <li>aaa339</li>
-        <li>aaa340</li>
-        <li>aaa341</li>
-        <li>aaa342</li>
-        <li>aaa343</li>
-        <li>aaa344</li>
-        <li>aaa345</li>
-        <li>aaa346</li>
-        <li>aaa347</li>
-        <li>aaa348</li>
-        <li>aaa349</li>
-        <li>aaa350</li>
-        <li>aaa351</li>
-        <li>aaa352</li>
-        <li>aaa353</li>
-        <li>aaa354</li>
-        <li>aaa355</li>
-        <li>aaa356</li>
-        <li>aaa357</li>
-        <li>aaa358</li>
-        <li>aaa359</li>
-        <li>aaa360</li>
-        <li>aaa361</li>
-        <li>aaa362</li>
-        <li>aaa363</li>
-        <li>aaa364</li>
-        <li>aaa365</li>
-        <li>aaa366</li>
-        <li>aaa367</li>
-        <li>aaa368</li>
-        <li>aaa369</li>
-        <li>aaa370</li>
-        <li>aaa371</li>
-        <li>aaa372</li>
-        <li>aaa373</li>
-        <li>aaa374</li>
-        <li>aaa375</li>
-        <li>aaa376</li>
-        <li>aaa377</li>
-        <li>aaa378</li>
-        <li>aaa379</li>
-        <li>aaa380</li>
-        <li>aaa381</li>
-        <li>aaa382</li>
-        <li>aaa383</li>
-        <li>aaa384</li>
-        <li>aaa385</li>
-        <li>aaa386</li>
-        <li>aaa387</li>
-        <li>aaa388</li>
-        <li>aaa389</li>
-        <li>aaa390</li>
-        <li>aaa391</li>
-        <li>aaa392</li>
-        <li>aaa393</li>
-        <li>aaa394</li>
-        <li>aaa395</li>
-        <li>aaa396</li>
-        <li>aaa397</li>
-        <li>aaa398</li>
-        <li>aaa399</li>
-        <li>aaa400</li>
-      </ul>
-    </scroll>
+  <div id="category">
+    <nav-bar class="navBar">
+      <template v-slot:center>
+        <div class="title">商品分类</div>
+      </template>
+    </nav-bar>
+    <div class="categoryContent">
+      <category-menu
+          :category-list="categoryList"
+          @selectMenu="selectMenu"/>
+      <scroll-category
+          class="wrapper"
+          ref="scroll"
+          :category-data="[categoryData]">
+        <div class="categoryLeft">
+            <sub-category-menu
+                :sub-category-list="showSubCategory"
+                @img-load="imgLoad"/>
+            <tab-control
+                @tab-click="tabClick"/>
+            <goods-list :goods="showCategoryGoods"/>
+        </div>
+      </scroll-category>
+    </div>
   </div>
 </template>
 
 <script>
-  import Scroll from "@/components/common/scroll/Scroll";
-  import BScroll from '@better-scroll/core'
-  import PullUp from '@better-scroll/pull-up'
+  import NavBar from "@/components/common/navBar/NavBar";
+  import CategoryMenu from "@/views/category/childComps/CategoryMenu";
+  import SubCategoryMenu from "@/views/category/childComps/SubCategoryMenu";
+  import TabControl from "@/components/content/TabControl";
+  import GoodsList from "@/components/content/goods/GoodsList";
 
-  BScroll.use(PullUp)
+  import ScrollCategory from "@/components/common/scroll/Scroll";
+
+  import { getCategoryMenu, getSubCategoryMenu, getGoods } from "@/network/category";
+  import { debounce } from "@/components/common/utils/utils";
+
   export default {
     name: "category",
     components: {
-      Scroll
+      NavBar,
+      CategoryMenu,
+      SubCategoryMenu,
+      TabControl,
+      GoodsList,
+
+      ScrollCategory
     },
-    // data() {
-    //   return {
-    //     scroll: null
-    //   }
-    // },
-    // mounted() {
-    //   this.scroll = new BScroll('.wrapper', {
-    //     scrollY: true,
-    //     pullUpLoad: true,
-    //     probeType: 0
-    //   })
-    //   this.scroll.on('scroll', pos => {
-    //     // console.log(pos);
-    //   })
-    //   this.scroll.on('pullingUp',() => {
-    //     // console.log(123);
-    //     this.scroll.finishPullUp()
-    //   })
-    // },
-    // methods: {
-    //   btnTest() {
-    //     console.log(123);
-    //   }
-    // }
+    data() {
+      return {
+        categoryList: [],
+        categoryData: [],
+        currentIndex: -1,
+        currentType: 'pop'
+      }
+    },
+    created() {
+      // 请求数据
+      this.getCategoryMenu()
+
+      // 不要使用总线bus，有意想不到的问题
+      // 监听图片加载完成，作防抖处理
+      // const refresh = debounce(this.$refs.scroll.refreshScroll, 100)
+      // this.$bus.$on('itemImgLoad', () => {
+      //   refresh()
+      // })
+      // this.$bus.$on('itemImgLoad', () => {
+      //   this.$refs.scroll.refreshScroll()
+      // })
+    },
+    mounted() {
+      this.$bus.$on('itemImgLoad', () => {
+        this.$refs.scroll.refreshScroll()
+      })
+    },
+    computed: {
+      showSubCategory() {
+        // 初始化未完成时，数据没有挂载完成，会找不到subCategoryList等属性，报错。所以就让未初始化完成时候的currentIndex为-1，初始化完成后自动为0（自动为0的原因是getCategoryMenu方法的调用）
+        if (this.currentIndex === -1) return {}
+        // console.log(this.currentIndex);
+        // console.log(this.categoryData[this.currentIndex].subCategoryList);
+        return this.categoryData[this.currentIndex].subCategoryList
+      },
+      showCategoryGoods() {
+        if (this.currentIndex === -1) return []
+        // console.log(this.categoryData[this.currentIndex].goodsList[this.currentType]);
+        return this.categoryData[this.currentIndex].goodsList[this.currentType]
+      }
+    },
+    methods: {
+      // 数据请求方法
+      // 左侧菜单栏数据
+      getCategoryMenu() {
+        getCategoryMenu().then(res => {
+          this.categoryList = res.data.category.list;
+          // 初始化分类页详情数据
+          for (let i = 0; i < this.categoryList.length; i++) {
+            this.categoryData[i] = {
+              subCategoryList: {},
+              goodsList: {
+                'pop': [],
+                'new': [],
+                'sell': []
+              }
+            }
+          }
+          // 请求左侧第一栏的数据，注意：要放在异步函数之内，不要放在外面，否则不能正常获取数据
+          this.getSubCategoryMenu(0)
+        })
+      },
+      // 右侧二级菜单栏数据
+      getSubCategoryMenu(index) {
+        this.currentIndex = index
+        const maitKey = this.categoryList[index].maitKey
+        // console.log(maitKey);
+        getSubCategoryMenu(maitKey).then(res => {
+          this.categoryData[index].subCategoryList = res.data
+          this.categoryData = {...this.categoryData}
+          // console.log(this.categoryData[index].subCategoryList);
+          this.getGoods('pop')
+          this.getGoods('new')
+          this.getGoods('sell')
+        })
+      },
+      // 右侧商品展示信息数据
+      getGoods(type) {
+        const miniWallkey = this.categoryList[this.currentIndex].miniWallkey
+        getGoods(miniWallkey, type).then(res => {
+          this.categoryData[this.currentIndex].goodsList[type] = res
+          this.categoryData = {...this.categoryData}
+        })
+      },
+
+      // 左侧主菜单点击监测
+      selectMenu(index) {
+        this.getSubCategoryMenu(index)
+      },
+
+      // tab-control点击事件
+      tabClick(index) {
+        switch (index) {
+          case 0:
+            this.currentType = 'pop';
+            break
+          case 1:
+            this.currentType = 'new';
+            break
+          case 2:
+            this.currentType = 'sell';
+            break
+        }
+      },
+      // 这里没有监测到图片的加载完成，原因？
+      imgLoad() {
+        console.log('调用了refresh');
+        this.$refs.scroll.refreshScroll()
+      }
+    }
   }
 </script>
 
 <style scoped>
+  .navBar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 9;
+  }
+  .title {
+    flex: 1;
+    color: #fff;
+    font-weight: 550;
+  }
+  .categoryContent {
+    position: absolute;
+    top: 44px;
+    bottom: 49px;
+    right: 0;
+    left: 0;
+
+    display: flex;
+  }
   .wrapper {
-    height: 500px;
-    background-color: red;
     overflow: hidden;
+  }
+  .categoryLeft {
+    /*flex: 1;*/  /*为什么设置flex为1，其宽度会被子元素撑开？*/
+    width: 275px;
   }
 </style>

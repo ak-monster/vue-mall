@@ -1,6 +1,7 @@
 <template>
   <div class="goodsItem" @click="itemClick">
-    <img :src="goodsItem.show.img" alt="" @load="imgLoad">
+<!--    用v-lazy替换:scr变成懒加载，v-lazy是插件-->
+    <img v-lazy="showImg" alt="" @load="imgLoad">
     <div class="goodsInfo">
       <p>{{goodsItem.title}}</p>
       <span class="price">{{goodsItem.price}}</span>
@@ -20,6 +21,12 @@
         }
       }
     },
+    computed: {
+      showImg() {
+        // 为什么show.img在前 category.vue中会报错？
+        return this.goodsItem.img || this.goodsItem.show.img
+      }
+    },
     methods: {
       imgLoad() {
         this.$bus.$emit('itemImgLoad');     //事件总线$bus
@@ -27,7 +34,12 @@
       itemClick() {
         this.$router.push('/detail/' + this.goodsItem.iid)
       }
-    }
+    },
+    // 不能执行销毁，同页面出现bug
+    // beforeDestroy() {
+    //   console.log('销毁成功');
+    //   this.$bus.$off('itemImgLoad')
+    // }
   }
 </script>
 

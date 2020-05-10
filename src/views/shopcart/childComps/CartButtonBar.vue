@@ -36,9 +36,9 @@
     methods: {
       selectAllBtn() {
         if (!this.select) {
-          this.$store.commit(SELECT_ALL)
-        } else {
           this.$store.commit(SELECT_NO)
+        } else {
+          this.$store.commit(SELECT_ALL)
         }
       }
     }

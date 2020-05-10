@@ -2,7 +2,9 @@ import {
   ADD_PRODUCT_COUNT,
   ADD_TO_CART,
   SELECT_ALL,
-  SELECT_NO
+  SELECT_NO,
+  ITEM_DECREASE,
+  ITEM_INCREASE, ITEM_DELETE
 } from "@/store/mutation-types";
 
 export default {
@@ -15,11 +17,23 @@ export default {
     state.cartList.push(payload)
   },
   [SELECT_ALL](state) {
-    state.cartList.forEach(item => item.checked = false)
+    state.cartList.forEach(item => item.checked = true)
     console.log(state.cartList);
   },
   [SELECT_NO](state) {
-    console.log('到我这里了吗');
-    state.cartList.forEach(item => item.checked = true)
+    state.cartList.forEach(item => item.checked = false)
+    console.log('全部不选中');
+  },
+  [ITEM_DECREASE](state, iid) {
+    const currentProduct = state.cartList.find(item => item.iid === iid)
+    currentProduct.count > 0? currentProduct.count-- : currentProduct.count = 0
+  },
+  [ITEM_INCREASE](state, iid) {
+    const currentProduct = state.cartList.find(item => item.iid === iid)
+    currentProduct.count++
+  },
+  [ITEM_DELETE](state, iid) {
+    const currentIndex = state.cartList.findIndex(item => item.iid === iid)
+    state.cartList.splice(currentIndex, 1)
   }
 }

@@ -53,7 +53,7 @@
         probeType: this.probeType,
         pullUpLoad: this.pullUpLoad,
       });
-
+      
       console.log(this.scroll);
       // 2.监听滚动位置
       this.scroll.on('scroll', pos => {
@@ -80,16 +80,14 @@
       },
       // 刷新数据
       refreshScroll() {
-        // console.log('刷新数据');
+        console.log('刷新数据');
         this.scroll && this.scroll.refresh()
       },
       // 记录滚动的Y轴位置
       getScrollY() {
-        console.log('记录y坐标' + this.scroll.y);
         return this.scroll ? this.scroll.y : 0
       }
     },
-    // 初始化滑动问题
     watch: {
       categoryData() {
         setTimeout(this.refreshScroll, 20)

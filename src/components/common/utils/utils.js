@@ -1,5 +1,5 @@
 // 抖动
-export function debounce(fn, delay) {
+export function debounce(fn, delay = 50) {
   let timer
   return function () {
     let context = this
