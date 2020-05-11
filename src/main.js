@@ -18,6 +18,11 @@ Vue.use(toast)
 
 // 解决移动端300ms的延迟
 FastClick.attach(document.body)
+document.addEventListener('touchmove', function (event) {
+  event.preventDefault();
+}, {
+  passive: false
+});
 
 // 图片懒加载
 Vue.use(VueLazyload, {

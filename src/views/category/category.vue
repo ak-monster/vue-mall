@@ -47,6 +47,7 @@
       TabControl,
       GoodsList,
 
+      // 尝试分离scroll，但是依然没有解决滑动bug
       ScrollCategory
     },
     data() {

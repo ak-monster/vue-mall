@@ -1,3 +1,5 @@
+<!--尝试分离scroll组件，但是依然没有解决bug-->
+
 <template>
   <div ref="wrapper">
     <div class="content">

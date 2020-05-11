@@ -2,7 +2,7 @@
   <div id="home">
     <nav-bar class="navbar">
       <template slot="center">
-        <div class="navTitle">购物街</div>
+        <div class="navTitle">JSMAN商城</div>
       </template>
     </nav-bar>
 <!--    吸顶效果tabControl——这样设置的原因：规避BS插件造成的无法吸顶并且到达顶部后脱流-->
@@ -18,7 +18,8 @@
             @scroll="scrollPosition"
             :pull-up-load="true"
             @pullingUp="loadMore"
-            @tabControlFixed="tabControlFixed" :goods="goods">
+            @tabControlFixed="tabControlFixed"
+            :goods="goods">
       <home-swiper
           class="homeSwiper"
           :banner-img="banner"
@@ -223,13 +224,8 @@
   .navTitle {
     flex: 1;
     color: #fff;
-    font-weight: 500;
+    font-weight: 550;
   }
-
-  /*教训：一直不知道为什么wrapper整体下移了44px，原来是这里曾经设置过，所以调试一定要仔细*/
-  /*.homeSwiper {*/
-  /*  margin-top: 44px;*/
-  /*}*/
 
   /*吸顶失效*/
   /*.tab-control {*/
