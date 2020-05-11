@@ -157,11 +157,17 @@ vue3 + vue-router + vuex + webpack(vue-cli) + ES6 + axios + flex
 
 - 主页展示
 
-  ![home](https://github.com/ak-monster/vue-mall/row/master/screenshot/home/home1.png)
+  ![home](https://github.com/ak-monster/vue-mall/raw/master/screenshot/home/home1.png)
 
-  ![home](https://github.com/ak-monster/vue-mall/row/master/screenshot/home/home2.png)
+  
 
-  ![home](https://github.com/ak-monster/vue-mall/row/master/screenshot/home/home3.png)
+  ![home](https://github.com/ak-monster/vue-mall/raw/master/screenshot/home/home2.png)
+
+  
+
+  ![home](https://github.com/ak-monster/vue-mall/raw/master/screenshot/home/home3.png)
+
+  
 
 - 基本功能
 
@@ -174,11 +180,15 @@ vue3 + vue-router + vuex + webpack(vue-cli) + ES6 + axios + flex
 
 - 详情页展示
 
-  ![detail](https://github.com/ak-monster/vue-mall/row/master/screenshot/detail/detail1.png)
+  ![detail](https://github.com/ak-monster/vue-mall/raw/master/screenshot/detail/detail1.png)
 
-  ![detail](https://github.com/ak-monster/vue-mall/row/master/screenshot/detail/detail2.png)
+  
 
-  ![detail](https://github.com/ak-monster/vue-mall/row/master/screenshot/detail/detail3.png)
+  ![detail](https://github.com/ak-monster/vue-mall/raw/master/screenshot/detail/detail2.png)
+
+  
+
+  ![detail](https://github.com/ak-monster/vue-mall/raw/master/screenshot/detail/detail3.png)
 
 - 基本功能
 
@@ -194,17 +204,21 @@ vue3 + vue-router + vuex + webpack(vue-cli) + ES6 + axios + flex
 
 - 分类页展示
 
-  ![category](https://github.com/ak-monster/vue-mall/row/master/screenshot/category/category1.png)
+  ![category](https://github.com/ak-monster/vue-mall/raw/master/screenshot/category/category1.png)
 
-  ![category](https://github.com/ak-monster/vue-mall/row/master/screenshot/category/category2.png)
+  
+
+  ![category](https://github.com/ak-monster/vue-mall/raw/master/screenshot/category/category2.png)
 
 ### 购物车 src/views/cart
 
 - 购物车展示
 
-  ![cart](https://github.com/ak-monster/vue-mall/row/master/screenshot/cart/cart1.png)
+  ![cart](https://github.com/ak-monster/vue-mall/raw/master/screenshot/cart/cart1.png)
 
-  ![cart](https://github.com/ak-monster/vue-mall/row/master/screenshot/cart/cart2.png)
+  
+
+  ![cart](https://github.com/ak-monster/vue-mall/raw/master/screenshot/cart/cart2.png)
 
 - 基本功能（vuex）
 
@@ -217,4 +231,4 @@ vue3 + vue-router + vuex + webpack(vue-cli) + ES6 + axios + flex
 
 - 用户展示
 
-  ![profile](https://github.com/ak-monster/vue-mall/row/master/screenshot/profile/profile.png)
+  ![profile](https://github.com/ak-monster/vue-mall/raw/master/screenshot/profile/profile.png)
